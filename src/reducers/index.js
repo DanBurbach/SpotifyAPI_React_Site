@@ -1,9 +1,13 @@
-import {FETCH_SONG_PENDING, FETCH_SONG_SUCCESS, FETCH_SONG_ERROR} from './actions';
+import {FETCH_SONG_PENDING, FETCH_SONG_SUCCESS, FETCH_SONG_ERROR} from '../actions';
 
 const initialState = {
     pending: false,
-    Song: [],
+    song: [],
     error: null
+}
+
+export function rootReducer(state = initialState, action){
+    return state;
 }
 
 export function SongReducer(state = initialState, action) {
@@ -17,7 +21,7 @@ export function SongReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                Song: action.payload
+                song: action.payload
             }
         case FETCH_SONG_ERROR:
             return {
