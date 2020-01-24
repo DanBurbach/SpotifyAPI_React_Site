@@ -7,9 +7,21 @@ class Main extends Component {
       articles: [
         { title: "React Redux Tutorial for Beginners", id: 1 },
         { title: "TypeScript tutorial for beginners", id: 2 }
-      ]
+      ],
+      token: null,
+      item: {
+        album: {
+          images: [{ url: ""}]
+        },
+        name: "",
+        artists: [{ name: ""}],
+        duration_ms:0,
+      },
+      playing: "Paused",
+      progress_ms: 0
     };
   }
+  
   render() {
     const { articles } = this.state;
     return (
