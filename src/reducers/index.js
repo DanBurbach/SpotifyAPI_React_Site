@@ -1,14 +1,12 @@
 import { combineReducers } from 'redux';
-import songReducer from './songReducer';
-import coreReducer from './songReducer';
+import inputReducer from './artistReducer';
+import artistReducer from './artistReducer';
+import albumReducer from './albumReducer';
 
 const rootReducer = combineReducers({
-    song: songReducer,
-    state: coreReducer
+    input: inputReducer,
+    artist: artistReducer,
+    album: albumReducer,
 });
 
 export default rootReducer;
-
-// export const getSong = state => state.song;
-// export const getSongPending = state => state.pending;
-// export const getSongError = state => state.error;
