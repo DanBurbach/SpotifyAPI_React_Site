@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import * as $ from 'jquery';
+import { authEndpoint, clientId, redirectUri, scopes } from "../../constants/config";
+import MusicPlayer from '../MusicPlayer';
 
 class Main extends Component {
   constructor(props) {
@@ -25,11 +28,33 @@ class Main extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <ul>
-        {articles.map(el => (
-          <li key={el.id}>{el.title}</li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {articles.map(el => (
+            <li key={el.id}>{el.title}</li>
+          ))}
+        </ul>
+        <div>
+          {!this.state.token && (
+                <a
+                  className="btn btn--loginApp-link"
+                  href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+                    "%20"
+                  )}&response_type=token&show_dialog=true`}
+                >
+                  Login to Spotify
+                </a>
+              )}
+              {this.state.token && (
+                <MusicPlayer
+                  item={this.state.item}
+                  is_playing={this.state.is_playing}
+                  progress_ms={this.progress_ms}
+                />
+              )}
+          )}
+        </div>
+      </div>
     );
   }
 }
