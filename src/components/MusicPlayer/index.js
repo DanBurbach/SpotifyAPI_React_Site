@@ -2,7 +2,7 @@ import React from 'react';
 
 const MusicPlayer = props => {
     const backgroundStyles = {
-        backgroundImage: `url(${ props.item.album.iomages[0].url})`
+        backgroundImage: `url(${ props.item.album.images[0].url})`
     };
 
 
@@ -14,7 +14,7 @@ return (
     <div>
         <div>
             <div>
-                <img src={props.item.album.images[0].url}/>
+                <img src={props.item.album.images[0].url} alt="album cover"/>
             </div>
             <div>
                 <div>{props.item.name}</div>
