@@ -43,7 +43,6 @@ class Main extends Component {
         xhr.setRequestHeader("Authorization", "Bearer " + token);
       },
       success: (data) => {
-        console.log("data", data);
         this.setState({
           item: data.item,
           is_playing: data.is_playing,
@@ -54,7 +53,6 @@ class Main extends Component {
   }
 
   render() {
-
     return (
       <div>
         <header className="App-header">
