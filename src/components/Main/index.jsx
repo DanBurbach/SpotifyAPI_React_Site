@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import * as $ from 'jquery';
-import hash from './hash';
+import * as $ from "jquery";
+import hash from "./hash";
 import { authEndpoint, clientId, redirectUri, scopes } from "../../constants/config";
-import Player from '../MusicPlayer';
+import Player from "../MusicPlayer";
 
 
 class Main extends Component {

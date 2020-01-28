@@ -14,18 +14,18 @@ const backgroundStyles = {
   return (
     <div className="App">
       <div className="main-wrapper">
-        <div className="now-playing__img">
+        <div>
           <img src={props.item.album.images[0].url} alt="album cover"/>
         </div>
-        <div className="now-playing__side">
-          <div className="now-playing__name">{props.item.name}</div>
-          <div className="now-playing__artist">
+        <div>
+          <div>{props.item.name}</div>
+          <div>
             {props.item.artists[0].name}
           </div>
-          <div className="now-playing__status">
+          <div>
             {props.is_playing ? "Playing" : "Paused"}
           </div>
-          <div className="progress">
+          <div>
             <div className="progress__bar" style={progressBarStyles} />
           </div>
         </div>
