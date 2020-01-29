@@ -8,4 +8,8 @@ export const scopes = [
     "user-top-read",
     "user-read-currently-playing",
     "user-read-playback-state",
+    
+    "streaming",
+    "user-read-email",
+    "user-read-private"
 ];
