@@ -85,24 +85,24 @@ class App extends Component {
         console.log(data);
         console.log(this.state.token);
         
-        // this.setState({
-        //   item: data.item,
-        //   is_playing: data.is_playing,
-        //   progress_ms: data.progress_ms
-        // });
+        this.setState({
+          item: data.item,
+          is_playing: data.is_playing,
+          progress_ms: data.progress_ms
+        });
       }
     });
   }
 
-  handleScriptLoad = () => {
-  return new Promise(resolve => {
-    if (window.Spotify) {
-      resolve();
-    } else {
-      window.onSpotifyWebPlaybackSDKReady = resolve;
-    }
-  });
-}
+//   handleScriptLoad = () => {
+//   return new Promise(resolve => {
+//     if (window.Spotify) {
+//       resolve();
+//     } else {
+//       window.onSpotifyWebPlaybackSDKReady = resolve;
+//     }
+//   });
+// }
 
   render() {
     return (
