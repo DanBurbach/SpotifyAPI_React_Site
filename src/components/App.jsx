@@ -38,6 +38,7 @@ import hash from "../components/Main/hash";
 
 import MusicPlayer from "../components/MusicPlayer";
 // import SpotifyWebApi from "spotify-web-api-js";
+import SpotifyPlayer from 'react-spotify-web-playback';
 
 class App extends Component {
   constructor() {
@@ -80,11 +81,13 @@ class App extends Component {
         xhr.setRequestHeader("Authorization", "Bearer " + token);
       },
       success: data => {
-        this.setState({
-          item: data.item,
-          is_playing: data.is_playing,
-          progress_ms: data.progress_ms
-        });
+        console.log(this.state.item);
+        console.log(data);
+        // this.setState({
+        //   item: data.item,
+        //   is_playing: data.is_playing,
+        //   progress_ms: data.progress_ms
+        // });
       }
     });
   }
@@ -102,6 +105,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+            <SpotifyPlayer
+              token={this.state.token}
+              uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
+            />
         <header className="App-header">
           {!this.state.token && (
             <a
@@ -119,12 +126,15 @@ class App extends Component {
               is_playing={this.state.is_playing}
               progress_ms={this.progress_ms}
             />
-            // <Script 
+            // <Script
             //   url="https://sdk.scdn.co/spotify-player.js"
             //   onError={this.handleScriptError}
             //   onLoad={this.handleScriptLoad}
             // />
-
+            // <SpotifyPlayer
+            //   token={this.state.token}
+            //   uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
+            // />
           )}
         </header>
       </div>
