@@ -83,6 +83,8 @@ class App extends Component {
       success: data => {
         console.log(this.state.item);
         console.log(data);
+        console.log(this.state.token);
+        
         // this.setState({
         //   item: data.item,
         //   is_playing: data.is_playing,
@@ -92,23 +94,19 @@ class App extends Component {
     });
   }
 
-//   handleScriptLoad = () => {
-//   return new Promise(resolve => {
-//     if (window.Spotify) {
-//       resolve();
-//     } else {
-//       window.onSpotifyWebPlaybackSDKReady = resolve;
-//     }
-//   });
-// }
+  handleScriptLoad = () => {
+  return new Promise(resolve => {
+    if (window.Spotify) {
+      resolve();
+    } else {
+      window.onSpotifyWebPlaybackSDKReady = resolve;
+    }
+  });
+}
 
   render() {
     return (
       <div className="App">
-            <SpotifyPlayer
-              token={this.state.token}
-              uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
-            />
         <header className="App-header">
           {!this.state.token && (
             <a
@@ -131,11 +129,20 @@ class App extends Component {
             //   onError={this.handleScriptError}
             //   onLoad={this.handleScriptLoad}
             // />
-            // <SpotifyPlayer
-            //   token={this.state.token}
-            //   uris={["spotify:artist:6HQYnRM4OzToCYPpVBInuU"]}
-            // />
           )}
+          <SpotifyPlayer
+            token={this.state.token}
+            uris={["spotify:playlist:14cjpZ5YTSVkGvjY0jOHPG"]}
+            styles={{
+              bgColor: "#333",
+              color: "#fff",
+              loaderColor: "#fff",
+              sliderColor: "#1cb954",
+              savedColor: "#fff",
+              trackArtistColor: "#ccc",
+              trackNameColor: "#fff"
+            }}
+          />
         </header>
       </div>
     );
